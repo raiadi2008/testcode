@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid"
 
 import {
   OperationRequest,
-  initializeCalculatorRequest,
+  InitializeCalculatorRequest,
 } from "../types/requests"
 import HttpStatus from "../constants/status_code"
 import {
@@ -19,7 +19,7 @@ import Calculator from "../models/calculator"
 import CalculatorInstances from "../globals/calculator_instances"
 
 export function initializeCalculator(req: Request, res: Response) {
-  const payload: initializeCalculatorRequest = req.body
+  const payload: InitializeCalculatorRequest = req.body
   console.log(payload)
   const payloadError = validateCalculatorInitializeRequest(payload)
   if (payloadError) {
@@ -54,6 +54,7 @@ export function resetCalculator(req: Request, res: Response) {
     } as ErrorResponseInterface)
   }
   calculator.reset()
+  console.log("here wer are", calculator_instance_id)
   return res.status(HttpStatus.SUCCESS).json({
     success: true,
     message: `calculator ${calculator_instance_id} has been reset`,

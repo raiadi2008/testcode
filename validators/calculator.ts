@@ -2,11 +2,11 @@ import AllowedOperations from "../constants/operation"
 import {
   OperationRequest,
   UndoOrResetOperationRequest,
-  initializeCalculatorRequest,
+  InitializeCalculatorRequest,
 } from "../types/requests"
 
 export function validateCalculatorInitializeRequest(
-  payload: initializeCalculatorRequest
+  payload: InitializeCalculatorRequest
 ): string | null {
   let errorString: string = ""
   if (payload.operand_first === null || payload.operand_first === undefined) {

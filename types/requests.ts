@@ -1,6 +1,6 @@
 import AllowedOperations from "../constants/operation"
 
-export interface initializeCalculatorRequest {
+export interface InitializeCalculatorRequest {
   operand_first: number
   operand_second: number
   operator: AllowedOperations

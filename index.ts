@@ -8,9 +8,11 @@ const app: Express = express()
 const port: number = process.env.PORT ? parseInt(process.env.PORT) : 3000
 
 app.use(express.json())
-app.use("/", calcRouter)
+app.use("/api/v1", calcRouter)
 app.use(RouteNotFound)
 
 app.listen(port, () => {
   console.log(`app listening at http://localhost:${port}`)
 })
+
+export default app
