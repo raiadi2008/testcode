@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "bfb6ba52-f71f-45d2-8fca-bcfc45f5dfa7",
+		"name": "testcode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11683895",
+		"_collection_link": "https://crimson-eclipse-429187.postman.co/workspace/hyprnest-next~aef597d7-ae5b-414f-992d-f3a8bf39e256/collection/11683895-bfb6ba52-f71f-45d2-8fca-bcfc45f5dfa7?action=share&source=collection_link&creator=11683895"
+	},
+	"item": [
+		{
+			"name": "init",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operand_first\": 0,\n    \"operand_second\": 4,\n    \"operator\": \"add\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/init"
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operand_first\": 0,\n    \"operand_second\": 4,\n    \"operator\": \"add\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/init"
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "90"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5a-w01lOJHAzjttX7ESoXCCuk+S+l4\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Sep 2023 18:24:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"total_ops\": 1,\n    \"result\": 4,\n    \"calculator_instance_id\": \"f17ab9d4-dcda-45a4-90ac-f95b62393307\"\n}"
+				}
+			]
+		},
+		{
+			"name": "reset",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/reset/f17ab9d4-dcda-45a4-90ac-f95b62393307"
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/reset/f17ab9d4-dcda-45a4-90ac-f95b62393307"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "91"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5b-kG1jhyKsNd4AGwKsfqrQLjn7z/A\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Sep 2023 18:25:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"calculator f17ab9d4-dcda-45a4-90ac-f95b62393307 has been reset\"\n}"
+				}
+			]
+		},
+		{
+			"name": "undo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/undo/f17ab9d4-dcda-45a4-90ac-f95b62393307"
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/undo/f17ab9d4-dcda-45a4-90ac-f95b62393307"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a-dakhzRSZTbrBboY2nndUJYu94LE\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Sep 2023 18:25:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": 0,\n    \"total_ops\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "operation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"operand\":9,\n    \"calculator_instance_id\": \"f17ab9d4-dcda-45a4-90ac-f95b62393307\",\n    \"operator\": \"add\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/v1/operation"
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operand\":9,\n    \"calculator_instance_id\": \"f17ab9d4-dcda-45a4-90ac-f95b62393307\",\n    \"operator\": \"add\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/api/v1/operation"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b-3pYylWB5AHNP4OeKlHI7H6I6B0Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Sep 2023 18:26:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": 36,\n    \"total_ops\": 4\n}"
+				}
+			]
+		}
+	]
+}
