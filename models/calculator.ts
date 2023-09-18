@@ -2,38 +2,46 @@ import AllowedOperations from "../constants/operation"
 
 class Calculator {
   private resultStack: number[]
+  private precision: number
 
   constructor(
     operand_first: number,
     operand_second: number,
     operation: AllowedOperations
   ) {
+    this.precision = 4
     this.resultStack = [operand_first]
     this.performOperation(operation, operand_second)
     this.resultStack = this.resultStack.slice(1)
   }
 
   performOperation(operation: AllowedOperations, operand: number) {
-    let lastResult =
-      this.resultStack.length === 0
-        ? 0
-        : this.resultStack[this.resultStack.length - 1]
+    let lastResult = this.getCurrentValue()
+    let result: number | null
     switch (operation) {
       case AllowedOperations.ADD:
-        this.resultStack.push(lastResult + operand)
+        result = lastResult + operand
         break
       case AllowedOperations.SUBTRACT:
-        this.resultStack.push(lastResult - operand)
+        result = lastResult - operand
         break
       case AllowedOperations.MULTIPLY:
-        this.resultStack.push(lastResult * operand)
+        result = lastResult * operand
         break
       case AllowedOperations.DIVISION:
-        this.resultStack.push(lastResult / operand)
+        if (operand === 0) throw new Error("division by 0 is not allowed")
+        result = lastResult / operand
         break
       default:
         throw new Error("Operation not allowed")
     }
+
+    if (result === null) return
+    if (result.toString().split(".").length === 2) {
+      result = parseFloat(result.toFixed(this.precision))
+    }
+
+    this.resultStack.push(result)
     return this.getCurrentValue()
   }
 
