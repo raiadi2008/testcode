@@ -1,4 +1,6 @@
 import AllowedOperations from "../constants/operation"
+import HttpStatus from "../constants/status_code"
+import AppError from "../types/errors"
 
 class Calculator {
   private resultStack: number[]
@@ -29,11 +31,15 @@ class Calculator {
         result = lastResult * operand
         break
       case AllowedOperations.DIVISION:
-        if (operand === 0) throw new Error("division by 0 is not allowed")
+        if (operand === 0)
+          throw new AppError(
+            "division by 0 is not allowed",
+            HttpStatus.BAD_REQUEST
+          )
         result = lastResult / operand
         break
       default:
-        throw new Error("Operation not allowed")
+        throw new AppError("Operation not allowed", HttpStatus.BAD_REQUEST)
     }
 
     if (result === null) return

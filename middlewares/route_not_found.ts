@@ -5,7 +5,7 @@ import { ErrorResponseInterface } from "../types/responses"
 
 function RouteNotFound(req: Request, res: Response, next: NextFunction) {
   res
-    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+    .status(HttpStatus.NOT_FOUND)
     .json({ error: "route not found" } as ErrorResponseInterface)
 }
 
