@@ -241,7 +241,6 @@ describe("Reset and Undo", () => {
 
   it("undo on emptly stack", async () => {
     const resp = await request(app).put(`/api/v1/undo/${calculator_instance}`)
-    console.log(resp.body)
     expect(resp.status).to.equal(HttpStatus.SUCCESS)
     expect(resp.body.result).to.equal(0)
     expect(resp.body.total_ops).to.equal(0)
@@ -277,7 +276,7 @@ describe("Reset and Undo", () => {
 
   it("undo after two operations", async () => {
     const resp = await request(app).put(`/api/v1/undo/${calculator_instance}`)
-    console.log(resp.body)
+
     expect(resp.status).to.equal(HttpStatus.SUCCESS)
     expect(resp.body.result).to.equal(4)
     expect(resp.body.total_ops).to.equal(1)
@@ -402,7 +401,6 @@ describe("Mutliple calculator instance", () => {
 
   it("undo third instance", async () => {
     const resp = await request(app).put(`/api/v1/undo/${calculator_instance_3}`)
-    console.log(resp.body)
     expect(resp.status).to.equal(HttpStatus.SUCCESS)
     expect(resp.body.result).to.equal(0)
     expect(resp.body.total_ops).to.equal(0)

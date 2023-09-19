@@ -20,7 +20,7 @@ import CalculatorInstances from "../globals/calculator_instances"
 
 export function initializeCalculator(req: Request, res: Response) {
   const payload: InitializeCalculatorRequest = req.body
-  console.log(payload)
+
   const payloadError = validateCalculatorInitializeRequest(payload)
   if (payloadError) {
     return res
@@ -54,7 +54,7 @@ export function resetCalculator(req: Request, res: Response) {
     } as ErrorResponseInterface)
   }
   calculator.reset()
-  console.log("here wer are", calculator_instance_id)
+
   return res.status(HttpStatus.SUCCESS).json({
     success: true,
     message: `calculator ${calculator_instance_id} has been reset`,
